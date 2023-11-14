@@ -5,6 +5,15 @@ using System.Text.Json;
 
 namespace CS7_Alg_TextManipulation;
 
+/// <summary>
+/// This file is a magic black box for you right now.
+/// It will allow you to connect to the web service that we
+/// will use to send and receive our messages!
+///
+/// We will go over how to use it in class, but gloss over the
+/// details of how it works.  If you are interested in how it
+/// works, stick around ;) cause we'll do this in Data Structures!
+/// </summary>
 public partial class MessagingApi
 {
     #region Properties
