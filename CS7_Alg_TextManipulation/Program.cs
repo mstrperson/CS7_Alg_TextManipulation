@@ -6,19 +6,26 @@ using CS7_Alg_TextManipulation;
 
 Console.WriteLine("Enter a secret Message");
 var message = Console.ReadLine()!;
-var encrypted = EncryptOrDecrypt(message, "my_password");
+var encrypted = EncryptOrDecryptString(message, "my_password");
 Console.WriteLine(encrypted);
+
+var decrypted = EncryptOrDecryptString(encrypted, "my_password");
+Console.WriteLine(decrypted);
+
 #endregion
 
 #region Methods
 
-string EncryptOrDecrypt(string message, string password)
+
+string EncryptOrDecryptString(string message, string password)
 {
-    string output = message;
-    
-    // TODO:  Implement Encryption using your Password and the XOR operator
-    
-    return output;
+    throw new NotImplementedException("You gotta write this code!");
+    //TODO:  Convert `message` and `password` to DATA and then encrypt/decrypt the message!
+}
+
+void EncryptOrDecrypteData(ref byte[] data, byte[] key)
+{
+    // TODO:  use the XOR operator to encrypt/decrypt the data using the key
 }
 
 #endregion
