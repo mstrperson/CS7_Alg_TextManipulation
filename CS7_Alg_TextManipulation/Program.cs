@@ -2,6 +2,7 @@
 
 #region Program
 
+using System.Text;
 using CS7_Alg_TextManipulation;
 
 Console.WriteLine("Enter a secret Message");
@@ -19,13 +20,22 @@ Console.WriteLine(decrypted);
 
 string EncryptOrDecryptString(string message, string password)
 {
-    throw new NotImplementedException("You gotta write this code!");
-    //TODO:  Convert `message` and `password` to DATA and then encrypt/decrypt the message!
+    var data = Encoding.UTF8.GetBytes(message);
+    var key = Encoding.UTF8.GetBytes(password);
+    
+    EncryptOrDecryptData(ref data, key);
+    
+    // Give back the encrypted String
+    return Encoding.UTF8.GetString(data);
 }
 
-void EncryptOrDecrypteData(ref byte[] data, byte[] key)
+void EncryptOrDecryptData(ref byte[] data, byte[] key)
 {
-    // TODO:  use the XOR operator to encrypt/decrypt the data using the key
+    for (int i = 0; i < data.Length; i++)
+    {
+        int j = i % key.Length;
+        data[i] ^= key[j]; // XOR
+    }
 }
 
 #endregion
