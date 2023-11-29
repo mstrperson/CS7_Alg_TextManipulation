@@ -89,7 +89,11 @@ public partial class MessagingApi
         {
             PrintError("You can't authorize a request until you log in.");
         }
-        if (authorize && (_auth?.IsExpired ?? false) && RenewToken())
+
+        if (authorize && (_auth?.IsExpired ?? false))
+            RenewToken();
+        
+        if (authorize)
                 request.Headers.Authorization = AuthHeader;
 
         if (content is not null)

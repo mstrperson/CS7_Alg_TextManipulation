@@ -76,6 +76,8 @@ public partial class MessagingApi
         public static implicit operator RecievedMessageStub(RecievedMessageRecord message) =>
             new(message.id, message.sender, message.contentType, message.messageContent.Length,
                 message.sent, message.read == default, message.hidden);
+
+        public override string ToString() => $"[{id}] From:  {sender}  Content-Type:  {contentType}";
     }
 
     
@@ -93,5 +95,11 @@ public partial class MessagingApi
     private readonly record struct LoginRecord(string email, string password);
 
     #endregion
+
     
+}
+
+public static class Extensions
+{
+    public static string ToBinaryString(this byte b) => Convert.ToString(b, 2).PadLeft(8, '0');
 }
